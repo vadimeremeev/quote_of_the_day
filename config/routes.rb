@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  match 'incomingdatafromtelegram9573' => 'home#incoming_message', via: [:post, :get]
+  post 'AAFQcUAX_zpVDSV9sQGY4gl9EE0LFwLrGsE' => 'home#incoming_message'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
