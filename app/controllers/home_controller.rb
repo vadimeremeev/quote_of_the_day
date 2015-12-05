@@ -18,7 +18,7 @@ class HomeController < ApplicationController
   	  if message[:text].try("include?('/start')")
   	  	reply = 'Welcome to the Awesome Quote of the Day!'
   	  else
-  	  	reply = Quote.order("RANDOM()").first
+  	  	reply = Quote.order("RANDOM()").pluck(:title).first
   	  end
   	  Telegram.send_message(user.telegram_user_id,reply)
   	end
