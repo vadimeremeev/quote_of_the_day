@@ -50,3 +50,7 @@ group :development do
   gem 'spring'
 end
 
+
+gem 'rest-client', :require => 'rest_client'
+
+gem 'nokogiri'
