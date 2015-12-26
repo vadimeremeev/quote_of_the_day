@@ -7,6 +7,13 @@ class Quote < ActiveRecord::Base
 		quote[:title]
 	end
 
+	def self.joke_quote
+	  quote = Quote.where(:title => Icndb::random_joke).first_or_create(
+		  :quote_types_id => 2
+	  )
+	  quote[:title]
+	end
+
 	def self.random_quote
 		Quote.order("RANDOM()").pluck(:title).first
 	end

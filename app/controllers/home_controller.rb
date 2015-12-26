@@ -23,6 +23,8 @@ class HomeController < ApplicationController
 	  	reply = 'Welcome to the Awesome Quote of the Day!'
     elsif @message[:text].to_s.include?('/motivate', '/m')
       reply = Quote.motivation_quote
+    elsif @message[:text].to_s.include?('/joke', '/j')
+      reply = Quote.joke_quote
 	  else
 	  	reply = Quote.random_quote
 	  end
