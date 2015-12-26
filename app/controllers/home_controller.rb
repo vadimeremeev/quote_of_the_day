@@ -15,15 +15,17 @@ class HomeController < ApplicationController
         :username => message[:chat][:username]
   	  )
 
-  	  if message[:text].try("include?('/start')")
+  	  if message[:text].to_s.include?('/start')
   	  	reply = 'Welcome to the Awesome Quote of the Day!'
+      elsif message[:text].to_s.include?('/motivate')
+        reply = Quote.motivation_quote
   	  else
-  	  	reply = Quote.order("RANDOM()").pluck(:title).first
+  	  	reply = Quote.random_quote
   	  end
+
   	  Telegram.send_message(user.telegram_user_id,reply)
   	end
 
-		Rails.logger.error ">>>Telegram: #{params}"
 		render :nothing => true, :status => 200
 	end
 end
