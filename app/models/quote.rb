@@ -7,7 +7,7 @@ class Quote < ActiveRecord::Base
 		quote[:title]
 	end
 
-	def random_quote
+	def self.random_quote
 		Quote.order("RANDOM()").pluck(:title).first
 	end
 
