@@ -19,11 +19,11 @@ class HomeController < ApplicationController
   end
 
 	def incoming_message
-	  if @message[:text].to_s.include?('/start')
+	  if ['/start'].include?(@message[:text].to_s)
 	  	reply = 'Welcome to the Awesome Quote of the Day!'
-    elsif @message[:text].to_s.include?('/motivate', '/m')
+    elsif ['/motivate', '/m'].include?(@message[:text].to_s)
       reply = Quote.motivation_quote
-    elsif @message[:text].to_s.include?('/joke', '/j')
+    elsif ['/joke', '/j'].include?(@message[:text].to_s)
       reply = Quote.joke_quote
 	  else
 	  	reply = Quote.random_quote
