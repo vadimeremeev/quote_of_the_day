@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   def initialise_user
     @message = Telegram.get_message(params)
     if @message.present?
-      @user = User.where(:telegram_user_id => @message[:chat][:id]).first_or_create(
+      $user = User.where(:telegram_user_id => @message[:chat][:id]).first_or_create(
         :telegram_user_id => @message[:chat][:id],
         :first_name => @message[:chat][:first_name],
         :last_name => @message[:chat][:last_name],
@@ -29,7 +29,7 @@ class HomeController < ApplicationController
 	  	reply = Quote.random_quote
 	  end
 
-	  Telegram.send_message(@user.telegram_user_id,reply)
+	  Telegram.send_message($user.telegram_user_id,reply)
 
 		render :nothing => true, :status => 200
 	end
