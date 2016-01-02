@@ -20,11 +20,13 @@ class HomeController < ApplicationController
 
 	def incoming_message
 	  if ['/start'].include?(@message[:text].to_s)
-	  	reply = 'Welcome to the Awesome Quote of the Day! Below is the list of available commands:
-        /m -  Motivate quote of the Day
+	  	reply = 'Welcome to the Awesome Quote of the Day!
+
+      Below is the list of available commands:
+        /m -  Motivational quote of the Day
         /j -  Random joke of the Day
         /f -  Fact about you
-        /mr - Motivated russian quote of the Day'
+        /mr - Motivational Russian quote of the Day'
     elsif ['/motivate', '/m'].include?(@message[:text].to_s)
       reply = Quote.motivation_quote
     elsif ['/joke', '/j'].include?(@message[:text].to_s)
