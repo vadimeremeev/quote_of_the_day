@@ -25,6 +25,8 @@ class HomeController < ApplicationController
       reply = Quote.motivation_quote
     elsif ['/joke', '/j'].include?(@message[:text].to_s)
       reply = Quote.joke_quote
+    elsif ['/motivate_russian', '/mr'].include?(@message[:text].to_s)
+      reply = Quote.motivation_russian_quote
 	  else
 	  	reply = Quote.random_quote
 	  end
