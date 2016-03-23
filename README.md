@@ -1,3 +1,5 @@
+![Codeship status](https://codeship.com/projects/141973/status?branch=master)
+
 ##About
 
 Motivated quote of the day you can receive over your telegram messenger.
